@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: deploy-monolith
-        image: jepan/deploy-monolith:1.0.0
+        image: jepanya/deploy-monolith:1.0.0
         imagePullPolicy: IfNotPresent
         ports:
         - containerPorts: 3000
@@ -38,4 +38,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 3000
-      nodePort: 30005 
+      nodePort: 30005

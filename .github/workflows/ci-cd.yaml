@@ -1,0 +1,27 @@
+name: CI/CD Monolith ke Minikube
+
+on:
+  push:
+    branches: ["main", "master"]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Tarik Kode Terbaru
+      uses: actions/checkout@v4
+
+    - name: Login ke Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKER.USERNAME }}
+        password: ${{ secrets.DOCKER.PASSWORD }}
+
+   - name: Build & Push Docker Image
+     run: |
+       docker build -t jepanya/deploy-monolith:${{ github.sha }} .
+       docker push jepanya/deploy-monolith:${{ github.sha  }}
+
+  - name: Update ke Kubernetes
+    run: |
+      echo: "Simulasi memperbarui klaster kubernetes dengan image baru: ${{ github.sha }}"
