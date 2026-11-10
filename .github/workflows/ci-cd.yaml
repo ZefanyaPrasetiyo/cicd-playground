@@ -27,7 +27,7 @@ jobs:
         git config --global user.name "Github Action Bot"
         git config --global user.email "actions@github.com"
 
-        sed -i 's|image: jepanya/deploy-monolith:.*|image: jepanya/deploy-monolith:${{ github.sha }}|g' k8s.yaml
+        sed -i 's|image: jepanya/deploy-monolith:.*|image: jepanya/deploy-monolith:${{ github.sha }}|g' k8s/k8s.yaml
         
         git add k8s/k8s.yaml
         git commit -am "chore: update k8s image tag to ${{ github.sha }}"
