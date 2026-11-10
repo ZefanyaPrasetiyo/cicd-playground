@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: deploy-monolith
-        image: jepanya/deploy-monolith:1.0.0
+        image: jepanya/deploy-monolith:9aa836a685ab98a13b7ef2c6d9f7a4b1a156c215
         imagePullPolicy: IfNotPresent
         ports:
         - containerPorts: 3000
